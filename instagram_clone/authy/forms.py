@@ -26,7 +26,6 @@ def UniqueUser(value):
 	if User.objects.filter(username__iexact=value).exists():
 		raise ValidationError('User with this username already exists.')
 
-
 class SignupForm(forms.ModelForm):
 	username = forms.CharField(widget=forms.TextInput(),
 	                           max_length=30, required=True,)
