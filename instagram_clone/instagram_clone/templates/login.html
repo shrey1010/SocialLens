@@ -1,54 +1,52 @@
-{% extends 'base.html' %}
 {% load static %}
 
-        
-{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  </head>
+  <body>
 
 
-<div class="field">
-  <p class="control has-icons-left has-icons-right">
-    <input class="input" type="email" placeholder="Email">
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-    <span class="icon is-small is-right">
-      <i class="fas fa-check"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control has-icons-left">
-    <input class="input" type="password" placeholder="Password">
-    <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control">
-    <button class="button is-success">
-      Login
-    </button>
-  </p>
-</div>
+  <section class="section">
+    <div class="container">
 
+<div class="columns is-mobile has-text-centered">
+  <div class="column is-half is-offset-one-quarter">
 
-<div class="row center-align">
-    <form method="post" action="" role="form" class="col s12">
-    {% csrf_token %}
-    <h3>Login</h3>
-      <div class="row">
-        <div class="input-field col s12">
-          {{ form.username }}
-          <label for="username">Username</label>
-        </div>
-      </div>
-       <div class="row">
-        <div class="input-field col s12">
-          {{ form.password }}
-          <label for="password">Password</label>
-        </div>
-      </div>
+    <div class="card">
+    <div class="card-content">
+
+          <form method="post" action="" role="form">
+          {% csrf_token %}
+           <h3 class="title is-3">Login</h3>
+
+            <div class="field">
+              <p class="control has-icons-left">
+              <label class="label is-medium">Username</label>
+                {{ form.username }}
+                <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+        </p>
+          </div>
+
+              <div class="field">
+              <p class="control has-icons-left">
+              <label class="label is-medium">Password</label>
+                {{ form.password }}
+                <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+        </p>
+          </div>
+
       {% if form.errors %}
       <div class="row">
         <div class="col s12">
@@ -56,10 +54,38 @@
         </div>
       </div>
       {% endif %}
-      <button type="submit" value="login" class="btn waves-effect waves-light"><i class="material-icons left">send</i>Login</button>
-      <input type="hidden" name="next" value="{{ next }}">
-      <button class="btn waves-effect waves-light"><i class="material-icons left">account_circle</i>Create an account</button>
-    </form>
-  </div>
 
-{% endblock %}
+      <div class="field">
+      <p class="control">
+        <button type="submit" value="login" class="button is-success">
+          Login
+        </button>
+      </p>
+    </div>
+
+    <input type="hidden" name="next" value="{{ next }}">
+
+
+
+    <a href="{% url 'signup' %}" class="button is-info">Create an account</a>
+
+
+  </form>
+
+
+
+
+    </div>
+    </div>
+    
+
+
+  </div>
+</div>
+
+
+    </div>
+  </section>
+
+  </body>
+</html>
