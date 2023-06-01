@@ -37,14 +37,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'django.contrib.humanize',
-    'authy',
-    'post',
-    'comment',
-    'direct',
-    'notifications',
-    'stories',
-    'django_celery_beat',
+    "django.contrib.humanize",
+    "authy",
+    "post",
+    "comment",
+    "direct",
+    "notifications",
+    "stories",
+    "django_celery_beat",
 ]
 
 MIDDLEWARE = [
